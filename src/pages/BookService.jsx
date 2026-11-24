@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { 
   Phone, Calendar, Clock, MapPin, ShieldCheck, AlertTriangle, 
-  CheckCircle2, ArrowRight, Sparkles, Building, Info, FileText, Check
+  CheckCircle2, ArrowRight, Info, Check
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { COMPANY_INFO, SERVICE_AREAS } from '../data/content';
@@ -242,7 +242,7 @@ export default function BookService() {
               </button>
               <Link
                 to="/"
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs text-center transition-colors shadow-sm"
+                className="w-full sm:w-auto h-11 px-6 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs inline-flex items-center justify-center transition-colors shadow-xs"
               >
                 Return to Home Page
               </Link>
@@ -250,7 +250,7 @@ export default function BookService() {
           </div>
         ) : (
           /* Main 2-Column Grid: Form + Footprint/Contact */
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
             {/* Form Column (7 Cols) */}
             <div className="lg:col-span-7">
@@ -280,7 +280,7 @@ export default function BookService() {
                         if (errors.fullName) setErrors({ ...errors, fullName: null });
                       }}
                       placeholder="e.g., Sarah Mitchell"
-                      className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all ${
+                      className={`w-full h-12 px-4 rounded-xl border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all ${
                         errors.fullName ? 'border-red-500 bg-red-50/30 form-error' : 'border-slate-300 bg-white hover:border-slate-400'
                       }`}
                     />
@@ -303,7 +303,7 @@ export default function BookService() {
                           if (errors.phoneNumber) setErrors({ ...errors, phoneNumber: null });
                         }}
                         placeholder="e.g., (919) 555-0192"
-                        className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all ${
+                        className={`w-full h-12 px-4 rounded-xl border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all ${
                           errors.phoneNumber ? 'border-red-500 bg-red-50/30 form-error' : 'border-slate-300 bg-white hover:border-slate-400'
                         }`}
                       />
@@ -324,7 +324,7 @@ export default function BookService() {
                           if (errors.emailAddress) setErrors({ ...errors, emailAddress: null });
                         }}
                         placeholder="e.g., sarah@example.com"
-                        className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all ${
+                        className={`w-full h-12 px-4 rounded-xl border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all ${
                           errors.emailAddress ? 'border-red-500 bg-red-50/30 form-error' : 'border-slate-300 bg-white hover:border-slate-400'
                         }`}
                       />
@@ -346,7 +346,7 @@ export default function BookService() {
                         if (errors.propertyAddress) setErrors({ ...errors, propertyAddress: null });
                       }}
                       placeholder="e.g., 104 Highcroft Dr, Cary, NC 27519"
-                      className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all ${
+                      className={`w-full h-12 px-4 rounded-xl border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all ${
                         errors.propertyAddress ? 'border-red-500 bg-red-50/30 form-error' : 'border-slate-300 bg-white hover:border-slate-400'
                       }`}
                     />
@@ -367,7 +367,7 @@ export default function BookService() {
                         name="applianceType"
                         value={formData.applianceType}
                         onChange={(e) => setFormData({ ...formData, applianceType: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                        className="w-full h-12 px-4 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500"
                       >
                         <option value="Refrigerator / Freezer">Refrigerator / Freezer</option>
                         <option value="Washer / Dryer">Washer / Dryer</option>
@@ -387,20 +387,20 @@ export default function BookService() {
                         value={formData.applianceBrand}
                         onChange={(e) => setFormData({ ...formData, applianceBrand: e.target.value })}
                         placeholder="e.g., Sub-Zero, Whirlpool, Samsung, LG"
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                        className="w-full h-12 px-4 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500"
                       />
                     </div>
                   </div>
 
-                  {/* Field 7: Select Urgency Level (Radio Buttons) */}
+                  {/* Field 7: Select Urgency Level (Radio Buttons: Equal Card Heights) */}
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                       7. Select Urgency Level <span className="text-red-500">*</span>
                     </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 items-stretch">
                       
                       {/* Emergency Option */}
-                      <label className={`flex flex-col p-3 rounded-xl border cursor-pointer transition-all ${
+                      <label className={`h-full flex flex-col justify-between p-3.5 rounded-xl border cursor-pointer transition-all ${
                         formData.urgencyLevel.includes('Emergency')
                           ? 'border-red-500 bg-red-50/70 shadow-xs'
                           : 'border-slate-200 hover:border-slate-300 bg-white'
@@ -418,13 +418,13 @@ export default function BookService() {
                             🔴 Emergency
                           </span>
                         </div>
-                        <span className="text-[11px] text-red-700 mt-1 pl-6">
+                        <span className="text-[11px] text-red-700 mt-1 pl-6 leading-tight">
                           Food Spoilage Risk (Prioritized Dispatch)
                         </span>
                       </label>
 
                       {/* Next-Day Preferred */}
-                      <label className={`flex flex-col p-3 rounded-xl border cursor-pointer transition-all ${
+                      <label className={`h-full flex flex-col justify-between p-3.5 rounded-xl border cursor-pointer transition-all ${
                         formData.urgencyLevel.includes('Next-Day')
                           ? 'border-amber-500 bg-amber-50/70 shadow-xs'
                           : 'border-slate-200 hover:border-slate-300 bg-white'
@@ -442,13 +442,13 @@ export default function BookService() {
                             🟡 Next-Day Preferred
                           </span>
                         </div>
-                        <span className="text-[11px] text-amber-800 mt-1 pl-6">
+                        <span className="text-[11px] text-amber-800 mt-1 pl-6 leading-tight">
                           Fast resolution within 24-48 hrs
                         </span>
                       </label>
 
                       {/* Standard / Flexible */}
-                      <label className={`flex flex-col p-3 rounded-xl border cursor-pointer transition-all ${
+                      <label className={`h-full flex flex-col justify-between p-3.5 rounded-xl border cursor-pointer transition-all ${
                         formData.urgencyLevel.includes('Standard')
                           ? 'border-emerald-500 bg-emerald-50/70 shadow-xs'
                           : 'border-slate-200 hover:border-slate-300 bg-white'
@@ -466,7 +466,7 @@ export default function BookService() {
                             🟢 Standard / Flexible
                           </span>
                         </div>
-                        <span className="text-[11px] text-emerald-800 mt-1 pl-6">
+                        <span className="text-[11px] text-emerald-800 mt-1 pl-6 leading-tight">
                           Convenient week routing
                         </span>
                       </label>
@@ -511,12 +511,12 @@ export default function BookService() {
                     {errors.issueDescription && <p className="text-xs text-red-600 mt-1 font-medium">{errors.issueDescription}</p>}
                   </div>
 
-                  {/* Submit Button (Required Text: [ Secure My Service Appointment ]) */}
+                  {/* Submit Button (Aligned Height h-14) */}
                   <div>
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 px-6 rounded-xl font-extrabold text-base text-white bg-gradient-to-r from-brand-600 via-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 shadow-xl shadow-brand-600/30 hover:shadow-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                      className="w-full h-14 px-6 rounded-xl font-extrabold text-base text-white bg-gradient-to-r from-brand-600 via-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 shadow-xl shadow-brand-600/30 hover:shadow-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                     >
                       {isSubmitting ? (
                         <>
@@ -533,12 +533,12 @@ export default function BookService() {
                     
                     <div className="flex items-center justify-center gap-4 mt-3 text-xs text-slate-500">
                       <span className="flex items-center gap-1">
-                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
                         90-Day Guarantee
                       </span>
                       <span>•</span>
                       <span className="flex items-center gap-1 text-slate-700 font-medium">
-                        <Check className="w-3.5 h-3.5 text-emerald-600" />
+                        <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
                         100% Diagnostic Credit on Repair
                       </span>
                     </div>
@@ -619,13 +619,13 @@ export default function BookService() {
               {/* Service Area & Footprint Explainer */}
               <div className="bg-white rounded-3xl p-7 shadow-lg border border-slate-200/90 space-y-4">
                 
-                {/* Section Title (Required) */}
+                {/* Section Title */}
                 <h3 className="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-brand-600" />
+                  <MapPin className="w-5 h-5 text-brand-600 flex-shrink-0" />
                   <span>Serving Cary &amp; Surrounding Wake County Neighborhoods</span>
                 </h3>
 
-                {/* Body Copy (Required) */}
+                {/* Body Copy */}
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Because we operate heavily on community recommendations and word-of-mouth reputation, our service vans travel strictly within Cary and nearby Wake County communities to keep our response times blazing fast.
                 </p>
