@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
+  <!-- Defs / Gradients -->
+  <defs>
+    <linearGradient id="shieldGrad" x1="10" y1="10" x2="80" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="wrenchGrad" x1="20" y1="20" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+
+  <!-- Shield Badge Background -->
+  <path d="M45 8 C68 8, 82 18, 82 38 C82 66, 52 86, 45 92 C38 86, 8 66, 8 38 C8 18, 22 8, 45 8 Z" fill="url(#shieldGrad)" />
+  <path d="M45 12 C65 12, 78 21, 78 39 C78 63, 51 81, 45 87 C39 81, 12 63, 12 39 C12 21, 25 12, 45 12 Z" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.4" fill="none" />
+
+  <!-- Refrigerator / Appliance Outline in Shield -->
+  <rect x="28" y="24" width="34" height="46" rx="4" fill="#0f172a" stroke="#ffffff" stroke-width="2.5" />
+  <!-- Fridge Split Line -->
+  <line x1="28" y1="42" x2="62" y2="42" stroke="#ffffff" stroke-width="2" />
+  <!-- Handles -->
+  <rect x="32" y="30" width="3" height="8" rx="1.5" fill="#38bdf8" />
+  <rect x="32" y="47" width="3" height="12" rx="1.5" fill="#38bdf8" />
+
+  <!-- Crossed Precision Wrench in Gold -->
+  <path d="M54 26 L66 38 M61 24 C64 21, 69 22, 71 25 L65 31 L69 35 L75 29 C78 31, 79 36, 76 39 L42 73 C39 76, 34 76, 31 73 C28 70, 28 65, 31 62 Z" fill="url(#goldGrad)" opacity="0.95" />
+
+  <!-- Text: BOB'S -->
+  <text x="96" y="45" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#0f172a" letter-spacing="-0.5">
+    BOB'S
+  </text>
+  <circle cx="215" cy="28" r="4" fill="#0284c7" />
+
+  <!-- Text: APPLIANCE REPAIR -->
+  <text x="96" y="68" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="16" fill="#0284c7" letter-spacing="2.2">
+    APPLIANCE REPAIR
+  </text>
+
+  <!-- Tagline text -->
+  <text x="97" y="85" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#64748b" letter-spacing="0.5">
+    Cary &amp; Wake County's Trusted Local Technicians
+  </text>
+</svg>
