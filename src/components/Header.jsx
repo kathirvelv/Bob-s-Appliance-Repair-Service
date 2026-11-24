@@ -34,13 +34,17 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
+  const isHomeActive = location.pathname === '/' && !location.hash;
+  const isSpecialtiesActive = location.pathname === '/specialties';
+  const isBookActive = location.pathname === '/book';
+
   return (
     <>
       {/* Top Notification Announcement Bar */}
-      <div className="bg-gradient-to-r from-slate-900 via-brand-950 to-slate-900 text-white text-xs py-2 px-4 border-b border-brand-800/40 relative z-50">
+      <div className="bg-slate-950 text-white text-xs py-2 px-4 border-b border-brand-900/60 relative z-50">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-center sm:text-left flex-wrap justify-center sm:justify-start">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-accent-emergency text-white animate-pulse">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-red-600 text-white animate-pulse">
               <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
               Emergency Dispatch Active
             </span>
@@ -67,80 +71,87 @@ export default function Header() {
       {/* Main Header / Navigation Bar */}
       <header className={`sticky top-0 z-40 transition-all duration-200 ${
         scrolled 
-          ? 'glass-header shadow-md border-b border-slate-200/90 py-2' 
+          ? 'glass-header shadow-md border-b border-slate-200/90 py-2.5' 
           : 'bg-white border-b border-slate-100 py-3'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4 h-14">
+          <div className="flex items-center justify-between gap-3 lg:gap-4 h-12 lg:h-14">
             
-            {/* Logo and Tagline */}
+            {/* Logo and Tagline (Flex Shrink 0 to never shrink or break) */}
             <div className="flex-shrink-0 flex items-center">
               <Logo />
             </div>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-5 xl:gap-7 h-full">
+            {/* Desktop Navigation Links (Always single-line with whitespace-nowrap) */}
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-2 flex-shrink-0">
               <Link
                 to="/"
-                className={`text-sm font-semibold transition-colors hover:text-brand-600 flex items-center h-full border-b-2 ${
-                  location.pathname === '/' && !location.hash ? 'text-brand-600 border-brand-600 font-bold' : 'text-slate-700 border-transparent'
+                className={`text-xs xl:text-sm font-bold px-3 py-2 rounded-lg transition-colors whitespace-nowrap ${
+                  isHomeActive
+                    ? 'text-brand-600 bg-brand-50'
+                    : 'text-slate-700 hover:text-brand-600 hover:bg-slate-50'
                 }`}
               >
                 Home
               </Link>
+              
               <Link
                 to="/specialties"
-                className={`text-sm font-semibold transition-colors hover:text-brand-600 flex items-center h-full border-b-2 ${
-                  location.pathname === '/specialties' ? 'text-brand-600 border-brand-600 font-bold' : 'text-slate-700 border-transparent'
+                className={`text-xs xl:text-sm font-bold px-3 py-2 rounded-lg transition-colors whitespace-nowrap ${
+                  isSpecialtiesActive
+                    ? 'text-brand-600 bg-brand-50'
+                    : 'text-slate-700 hover:text-brand-600 hover:bg-slate-50'
                 }`}
               >
-                Appliance Specialties
+                <span className="hidden xl:inline">Appliance </span>Specialties
               </Link>
+
               <a
                 href="/#fair-pricing"
-                className="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors flex items-center gap-1.5 h-full border-b-2 border-transparent"
+                className="text-xs xl:text-sm font-bold px-3 py-2 rounded-lg text-slate-700 hover:text-brand-600 hover:bg-slate-50 transition-colors whitespace-nowrap inline-flex items-center gap-1.5"
               >
                 <span>Fair Pricing</span>
-                <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-1.5 py-0.5 rounded">100% Credit</span>
+                <span className="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-1.5 py-0.5 rounded">
+                  100% Credit
+                </span>
               </a>
+
               <a
                 href="/#brands"
-                className="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors flex items-center h-full border-b-2 border-transparent"
+                className="text-xs xl:text-sm font-bold px-3 py-2 rounded-lg text-slate-700 hover:text-brand-600 hover:bg-slate-50 transition-colors whitespace-nowrap"
               >
-                Brands Stocked
+                Brands<span className="hidden xl:inline"> Stocked</span>
               </a>
+
               <Link
                 to="/book"
-                className={`text-sm font-semibold transition-colors hover:text-brand-600 flex items-center h-full border-b-2 ${
-                  location.pathname === '/book' ? 'text-brand-600 border-brand-600 font-bold' : 'text-slate-700 border-transparent'
+                className={`text-xs xl:text-sm font-bold px-3 py-2 rounded-lg transition-colors whitespace-nowrap ${
+                  isBookActive
+                    ? 'text-brand-600 bg-brand-50'
+                    : 'text-slate-700 hover:text-brand-600 hover:bg-slate-50'
                 }`}
               >
-                Service Area &amp; Contact
+                <span className="hidden xl:inline">Service Area &amp; </span>Contact
               </Link>
             </nav>
 
-            {/* Desktop Actions: Phone CTA + Primary Button */}
-            <div className="hidden sm:flex items-center gap-3">
-              {/* Phone CTA */}
+            {/* Desktop Actions: Phone CTA + Primary Button (Both flex-shrink-0 and whitespace-nowrap) */}
+            <div className="hidden sm:flex items-center gap-2 xl:gap-3 flex-shrink-0">
+              {/* Phone CTA Card */}
               <a
                 href={`tel:${COMPANY_INFO.phoneRaw}`}
-                className="h-11 inline-flex items-center gap-2.5 px-3.5 rounded-xl bg-slate-50 hover:bg-brand-50 border border-slate-200 hover:border-brand-300 transition-all text-slate-800 group"
+                className="h-10 xl:h-11 inline-flex items-center gap-2 xl:gap-2.5 px-3 xl:px-3.5 rounded-xl bg-slate-50 hover:bg-brand-50 border border-slate-200 hover:border-brand-300 transition-all text-slate-800 flex-shrink-0 whitespace-nowrap group"
                 title="Call Bob's Appliance Repair Service now"
               >
-                <div className="w-8 h-8 rounded-lg bg-emerald-500 text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform flex-shrink-0">
-                  <Phone className="w-4 h-4 fill-current" />
+                <div className="w-7 h-7 xl:w-8 xl:h-8 rounded-lg bg-emerald-500 text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                  <Phone className="w-3.5 h-3.5 xl:w-4 xl:h-4 fill-current" />
                 </div>
-                <div className="text-left leading-tight hidden xl:block">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
+                <div className="flex flex-col text-left leading-none justify-center">
+                  <span className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
                     📞 Call Now
                   </span>
-                  <span className="text-sm font-extrabold text-slate-900 group-hover:text-brand-600 transition-colors">
+                  <span className="text-xs xl:text-sm font-extrabold text-slate-900 group-hover:text-brand-600 transition-colors mt-0.5 whitespace-nowrap">
                     {COMPANY_INFO.phone}
-                  </span>
-                </div>
-                <div className="text-left leading-tight xl:hidden">
-                  <span className="text-xs font-extrabold text-slate-900">
-                    (919) 210-6086
                   </span>
                 </div>
               </a>
@@ -148,28 +159,28 @@ export default function Header() {
               {/* Primary Button: Book Diagnostic Service */}
               <Link
                 to="/book"
-                className="h-11 inline-flex items-center justify-center gap-2 px-5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 shadow-md shadow-brand-500/20 hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0 flex-shrink-0"
+                className="h-10 xl:h-11 inline-flex items-center justify-center gap-1.5 xl:gap-2 px-3.5 xl:px-5 rounded-xl font-bold text-xs xl:text-sm text-white bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 shadow-md shadow-brand-500/20 hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0 flex-shrink-0 whitespace-nowrap"
               >
-                <Calendar className="w-4 h-4 text-brand-200" />
-                <span>Book Diagnostic Service</span>
+                <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-brand-200 flex-shrink-0" />
+                <span><span className="hidden 2xl:inline">Book </span>Diagnostic Service</span>
               </Link>
             </div>
 
-            {/* Mobile Actions: Call Button + Hamburger Toggle */}
-            <div className="flex items-center gap-2 lg:hidden">
+            {/* Mobile Actions: Tap to Call + Menu Hamburger */}
+            <div className="flex items-center gap-2 lg:hidden flex-shrink-0">
               <a
                 href={`tel:${COMPANY_INFO.phoneRaw}`}
-                className="h-10 px-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white shadow-xs inline-flex items-center gap-1.5 text-xs font-bold sm:hidden"
+                className="h-9 px-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white shadow-xs inline-flex items-center gap-1.5 text-xs font-bold sm:hidden flex-shrink-0 whitespace-nowrap"
                 aria-label="Call (919) 210-6086"
               >
-                <Phone className="w-4 h-4 fill-current" />
+                <Phone className="w-3.5 h-3.5 fill-current" />
                 <span>Call</span>
               </a>
 
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="h-10 w-10 inline-flex items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                className="h-9 w-9 sm:h-10 sm:w-10 inline-flex items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 flex-shrink-0"
                 aria-label="Toggle Navigation Menu"
                 aria-expanded={mobileMenuOpen}
               >
@@ -205,7 +216,7 @@ export default function Header() {
                 <Link
                   to="/"
                   className={`flex items-center justify-between px-3.5 py-3 rounded-xl text-base font-semibold ${
-                    location.pathname === '/' && !location.hash ? 'bg-brand-50 text-brand-700 font-bold' : 'text-slate-800 hover:bg-slate-50'
+                    isHomeActive ? 'bg-brand-50 text-brand-700 font-bold' : 'text-slate-800 hover:bg-slate-50'
                   }`}
                 >
                   <span>Home</span>
@@ -214,7 +225,7 @@ export default function Header() {
                 <Link
                   to="/specialties"
                   className={`flex items-center justify-between px-3.5 py-3 rounded-xl text-base font-semibold ${
-                    location.pathname === '/specialties' ? 'bg-brand-50 text-brand-700 font-bold' : 'text-slate-800 hover:bg-slate-50'
+                    isSpecialtiesActive ? 'bg-brand-50 text-brand-700 font-bold' : 'text-slate-800 hover:bg-slate-50'
                   }`}
                 >
                   <span>Appliance Specialties (Fridge, Washer, Oven)</span>
@@ -242,7 +253,7 @@ export default function Header() {
                 <Link
                   to="/book"
                   className={`flex items-center justify-between px-3.5 py-3 rounded-xl text-base font-semibold ${
-                    location.pathname === '/book' ? 'bg-brand-50 text-brand-700 font-bold' : 'text-slate-800 hover:bg-slate-50'
+                    isBookActive ? 'bg-brand-50 text-brand-700 font-bold' : 'text-slate-800 hover:bg-slate-50'
                   }`}
                 >
                   <span>Book Service &amp; Wake County Footprint</span>
