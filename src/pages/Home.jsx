@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Phone, Calendar, ShieldCheck, Clock, Zap, CheckCircle2, AlertCircle, 
-  ChevronRight, ArrowRight, Star, HelpCircle, Wrench, Sparkles, Award,
-  Check, ThermometerSnowflake, Droplets, Flame, Waves, DollarSign
+  Phone, Calendar, ShieldCheck, Clock, Zap, CheckCircle2, 
+  ChevronRight, ArrowRight, Star, Award,
+  Check, ThermometerSnowflake, Flame, Waves, DollarSign
 } from 'lucide-react';
 import { 
-  COMPANY_INFO, CORE_CATEGORIES, BRAND_MATRIX, TRUST_BADGES, 
+  COMPANY_INFO, CORE_CATEGORIES, BRAND_MATRIX, 
   TESTIMONIALS, FAQ_ITEMS, SERVICE_AREAS 
 } from '../data/content';
 
@@ -21,111 +21,120 @@ export default function Home() {
 
   return (
     <div className="bg-slate-50 min-h-screen">
+      
       {/* 1. HERO SECTION (Above the Fold) */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-brand-50/60 via-white to-slate-50 pt-8 pb-16 lg:pt-14 lg:pb-20 border-b border-slate-200/60">
-        {/* Subtle background glow */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-brand-50/50 via-white to-slate-50 pt-6 pb-12 sm:pt-8 sm:pb-14 lg:pt-10 lg:pb-16 border-b border-slate-200/70">
+        {/* Ambient background glows */}
         <div className="absolute top-0 right-0 -translate-y-12 translate-x-12 w-96 h-96 bg-brand-400/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 translate-y-12 -translate-x-12 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-center">
             
-            {/* Left Column: Headlines and CTAs */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            {/* Left Column: Headlines, CTAs & Value Props */}
+            <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
               
               {/* Trust Tag Above Headline */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100/80 border border-brand-200 text-brand-900 text-xs sm:text-sm font-bold shadow-xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100/90 border border-brand-200/80 text-brand-900 text-xs sm:text-sm font-bold shadow-2xs">
                 <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span>Cary &amp; Wake County’s #1 Word-of-Mouth Appliance Repair</span>
                 <span className="hidden sm:inline text-brand-400">•</span>
                 <span className="hidden sm:inline text-brand-700 font-semibold">90-Day Warranty</span>
               </div>
 
-              {/* Main Headline */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
-                Fast, Honest Appliance Repair in <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-800">Cary &amp; Wake County</span>
+              {/* Main Headline (Clean 2-line break, zero orphan words) */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-5xl 2xl:text-6xl font-black text-slate-900 tracking-tight leading-[1.14]">
+                Fast, Honest Appliance Repair in{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-brand-600 to-brand-800 inline-block whitespace-nowrap">
+                  Cary &amp; Wake County
+                </span>
               </h1>
 
               {/* Sub-Headline */}
-              <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-sm sm:text-base xl:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Refrigerator warm? Washer leaking? Get expert, same-day diagnostics from Cary's highest-recommended word-of-mouth repair specialists. No hidden fees—just reliable, flat-rate pricing.
               </p>
 
-              {/* Call-to-Action Buttons (Aligned with equal height and border box) */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
+              {/* Call-to-Action Buttons (Single line, matching heights, zero awkward wrapping) */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 pt-1">
                 {/* Button 1 (Primary) */}
                 <Link
                   to="/book"
-                  className="w-full sm:w-auto h-14 px-7 border-2 border-transparent inline-flex items-center justify-center gap-2.5 rounded-xl font-extrabold text-base text-white bg-gradient-to-r from-brand-600 via-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 shadow-xl shadow-brand-600/25 hover:shadow-2xl hover:shadow-brand-600/35 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                  className="h-12 sm:h-13 px-5 xl:px-6 rounded-xl font-extrabold text-sm xl:text-base text-white bg-gradient-to-r from-brand-600 via-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 shadow-md shadow-brand-600/20 hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center justify-center gap-2 flex-shrink-0 whitespace-nowrap"
                 >
-                  <Calendar className="w-5 h-5 text-brand-200 flex-shrink-0" />
+                  <Calendar className="w-4 h-4 xl:w-5 xl:h-5 text-brand-200 flex-shrink-0" />
                   <span>Schedule Your Diagnostic Now</span>
                 </Link>
 
                 {/* Button 2 (Secondary) */}
                 <a
                   href={`tel:${COMPANY_INFO.phoneRaw}`}
-                  className="w-full sm:w-auto h-14 px-6 border-2 border-slate-300 hover:border-brand-500 inline-flex items-center justify-center gap-2.5 rounded-xl font-bold text-base text-slate-800 bg-white hover:bg-slate-50 shadow-md shadow-slate-200/50 hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 group"
+                  className="h-12 sm:h-13 px-4 xl:px-5 rounded-xl font-bold text-sm xl:text-base text-slate-800 bg-white hover:bg-slate-50 border-2 border-slate-300 hover:border-brand-500 shadow-2xs hover:shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center justify-center gap-2 flex-shrink-0 whitespace-nowrap group"
                 >
-                  <Phone className="w-5 h-5 text-emerald-600 fill-current group-hover:scale-110 transition-transform flex-shrink-0" />
+                  <Phone className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 fill-current group-hover:scale-110 transition-transform flex-shrink-0" />
                   <span>Call {COMPANY_INFO.phone} for Emergency Service</span>
                 </a>
               </div>
 
-              {/* Above the Fold Trust Tickers */}
-              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs sm:text-sm text-slate-600 font-medium">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+              {/* Structured Trust Badges Ribbon (Clean pills, no loose wrapping) */}
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs text-slate-700 font-semibold">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200/80 text-emerald-950 shadow-2xs">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
                   <span><strong>100% Diagnostic Credit</strong> toward repair</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span><strong>Stocked Service Vans</strong> (Common parts on board)</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span><strong>No Hourly Surprises</strong></span>
-                </div>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-slate-800 shadow-2xs">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-brand-600 flex-shrink-0" />
+                  <span><strong>Stocked Vans</strong> (Common parts on board)</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-slate-800 shadow-2xs">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-brand-600 flex-shrink-0" />
+                  <span><strong>Flat-Rate Pricing</strong> (Zero surprises)</span>
+                </span>
               </div>
 
             </div>
 
-            {/* Right Column: Interactive Dispatch Hub & Appliance Quick Diagnostic Card */}
+            {/* Right Column: Interactive Dispatch Hub & Quick Diagnostic Card */}
             <div className="lg:col-span-5">
-              <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-2xl shadow-brand-900/10 border border-slate-200/80 relative">
+              <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-xl shadow-brand-900/10 border border-slate-200 relative">
                 
-                {/* Emergency Tag Badge */}
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
+                {/* Emergency Tag Badge Header */}
+                <div className="flex items-center justify-between pb-3 mb-3.5 border-b border-slate-100">
                   <div className="flex items-center gap-2">
-                    <span className="relative flex h-3 w-3">
+                    <span className="relative flex h-2.5 w-2.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                     </span>
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
                       Cary &amp; Wake Dispatch: Active
                     </span>
                   </div>
-                  <span className="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
                     Same-Day Diagnostic Open
                   </span>
                 </div>
 
-                {/* Refrigerator Spoilage Emergency Callout Box */}
-                <div className="bg-gradient-to-r from-red-50 to-rose-50 border border-red-200 rounded-2xl p-4 mb-5">
+                {/* High-Contrast Refrigerator Emergency Food Preservation Box */}
+                <div className="bg-red-50/90 border border-red-200 rounded-2xl p-3.5 sm:p-4 mb-4 shadow-2xs">
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-red-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-xl bg-red-600 text-white flex items-center justify-center flex-shrink-0 shadow-xs mt-0.5">
                       <ThermometerSnowflake className="w-5 h-5 animate-pulse" />
                     </div>
-                    <div>
-                      <h3 className="text-xs font-black text-red-900 uppercase tracking-wide">
-                        Food Preservation Priority Protocol
-                      </h3>
-                      <p className="text-xs text-red-700 mt-1 leading-snug">
+                    <div className="space-y-1 text-left flex-1">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-xs font-black text-red-950 uppercase tracking-wide">
+                          Food Preservation Priority Protocol
+                        </h3>
+                        <span className="text-[10px] font-extrabold uppercase bg-red-600 text-white px-1.5 py-0.5 rounded">
+                          Urgent
+                        </span>
+                      </div>
+                      <p className="text-xs text-red-900 font-medium leading-snug">
                         Is your refrigerator above 40°F? Don't let your groceries spoil. We prioritize emergency fridge and freezer calls across Cary and Wake County.
                       </p>
                       <a
                         href={`tel:${COMPANY_INFO.phoneRaw}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-extrabold text-red-800 hover:text-red-900 underline mt-2"
+                        className="inline-flex items-center gap-1.5 text-xs font-black text-red-700 hover:text-red-950 underline pt-0.5"
                       >
                         ⚡ Direct Emergency Dispatch: (919) 210-6086 →
                       </a>
@@ -135,104 +144,106 @@ export default function Home() {
 
                 {/* Quick Diagnostics Selector (Equal Height Grid) */}
                 <div className="space-y-3">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block text-left">
                     Select Your Broken Appliance for Instant Guidance:
                   </span>
-                  <div className="grid grid-cols-3 gap-2.5">
+                  
+                  <div className="grid grid-cols-3 gap-2">
                     <button
                       type="button"
                       onClick={() => setSelectedCategory('refrigerator')}
-                      className={`h-20 rounded-xl border text-center transition-all flex flex-col items-center justify-center p-2 ${
+                      className={`h-19 rounded-xl border text-center transition-all flex flex-col items-center justify-center p-1.5 ${
                         selectedCategory === 'refrigerator'
-                          ? 'border-brand-500 bg-brand-50/80 shadow-xs'
-                          : 'border-slate-200 hover:border-slate-300 bg-slate-50/50'
+                          ? 'border-brand-500 bg-brand-50/90 ring-2 ring-brand-500/20 shadow-xs'
+                          : 'border-slate-200 hover:border-slate-300 bg-slate-50/60'
                       }`}
                     >
-                      <ThermometerSnowflake className={`w-5 h-5 mb-1 ${selectedCategory === 'refrigerator' ? 'text-brand-600' : 'text-slate-500'}`} />
-                      <span className="text-xs font-bold block text-slate-800 leading-tight">Fridge / Ice</span>
-                      <span className="text-[10px] text-red-600 font-bold block">Urgent</span>
+                      <ThermometerSnowflake className={`w-4 h-4 mb-1 ${selectedCategory === 'refrigerator' ? 'text-brand-600' : 'text-slate-500'}`} />
+                      <span className="text-xs font-bold block text-slate-900 leading-tight">Fridge / Ice</span>
+                      <span className="text-[10px] text-red-600 font-extrabold block">Urgent</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => setSelectedCategory('washer-dryer')}
-                      className={`h-20 rounded-xl border text-center transition-all flex flex-col items-center justify-center p-2 ${
+                      className={`h-19 rounded-xl border text-center transition-all flex flex-col items-center justify-center p-1.5 ${
                         selectedCategory === 'washer-dryer'
-                          ? 'border-brand-500 bg-brand-50/80 shadow-xs'
-                          : 'border-slate-200 hover:border-slate-300 bg-slate-50/50'
+                          ? 'border-brand-500 bg-brand-50/90 ring-2 ring-brand-500/20 shadow-xs'
+                          : 'border-slate-200 hover:border-slate-300 bg-slate-50/60'
                       }`}
                     >
-                      <Waves className={`w-5 h-5 mb-1 ${selectedCategory === 'washer-dryer' ? 'text-brand-600' : 'text-slate-500'}`} />
-                      <span className="text-xs font-bold block text-slate-800 leading-tight">Washer/Dryer</span>
-                      <span className="text-[10px] text-slate-500 font-medium block">Spin / Heat</span>
+                      <Waves className={`w-4 h-4 mb-1 ${selectedCategory === 'washer-dryer' ? 'text-brand-600' : 'text-slate-500'}`} />
+                      <span className="text-xs font-bold block text-slate-900 leading-tight">Washer/Dryer</span>
+                      <span className="text-[10px] text-slate-500 font-semibold block">Spin / Heat</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => setSelectedCategory('oven-range')}
-                      className={`h-20 rounded-xl border text-center transition-all flex flex-col items-center justify-center p-2 ${
+                      className={`h-19 rounded-xl border text-center transition-all flex flex-col items-center justify-center p-1.5 ${
                         selectedCategory === 'oven-range'
-                          ? 'border-brand-500 bg-brand-50/80 shadow-xs'
-                          : 'border-slate-200 hover:border-slate-300 bg-slate-50/50'
+                          ? 'border-brand-500 bg-brand-50/90 ring-2 ring-brand-500/20 shadow-xs'
+                          : 'border-slate-200 hover:border-slate-300 bg-slate-50/60'
                       }`}
                     >
-                      <Flame className={`w-5 h-5 mb-1 ${selectedCategory === 'oven-range' ? 'text-brand-600' : 'text-slate-500'}`} />
-                      <span className="text-xs font-bold block text-slate-800 leading-tight">Oven / Stove</span>
-                      <span className="text-[10px] text-slate-500 font-medium block">Gas &amp; Electric</span>
+                      <Flame className={`w-4 h-4 mb-1 ${selectedCategory === 'oven-range' ? 'text-brand-600' : 'text-slate-500'}`} />
+                      <span className="text-xs font-bold block text-slate-900 leading-tight">Oven / Stove</span>
+                      <span className="text-[10px] text-slate-500 font-semibold block">Gas &amp; Electric</span>
                     </button>
                   </div>
 
                   {/* Selected Appliance Info Quick Preview */}
                   {selectedCategory === 'refrigerator' && (
-                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1.5 animate-fadeIn">
-                      <div className="font-bold text-slate-800 flex items-center justify-between">
+                    <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1 animate-fadeIn text-left">
+                      <div className="font-bold text-slate-900 flex items-center justify-between">
                         <span>Refrigerator &amp; Freezer Failures</span>
-                        <span className="text-red-600 font-bold">Priority #1</span>
+                        <span className="text-red-600 font-black text-[11px]">Priority #1</span>
                       </div>
-                      <p className="text-slate-600 text-[11px] leading-relaxed">
+                      <p className="text-slate-600 text-[11.5px] leading-relaxed">
                         Compressor failures, cooling loss, clicking relays, water leaks, or ice maker jams.
                       </p>
                     </div>
                   )}
 
                   {selectedCategory === 'washer-dryer' && (
-                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1.5 animate-fadeIn">
-                      <div className="font-bold text-slate-800 flex items-center justify-between">
+                    <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1 animate-fadeIn text-left">
+                      <div className="font-bold text-slate-900 flex items-center justify-between">
                         <span>Washer &amp; Dryer Problems</span>
-                        <span className="text-brand-600 font-bold">Same-Day</span>
+                        <span className="text-brand-600 font-black text-[11px]">Same-Day</span>
                       </div>
-                      <p className="text-slate-600 text-[11px] leading-relaxed">
+                      <p className="text-slate-600 text-[11.5px] leading-relaxed">
                         Not spinning, water won't drain, dryer blowing cold air, or loud grinding rollers.
                       </p>
                     </div>
                   )}
 
                   {selectedCategory === 'oven-range' && (
-                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1.5 animate-fadeIn">
-                      <div className="font-bold text-slate-800 flex items-center justify-between">
+                    <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1 animate-fadeIn text-left">
+                      <div className="font-bold text-slate-900 flex items-center justify-between">
                         <span>Oven, Range &amp; Cooktops</span>
-                        <span className="text-amber-600 font-bold">Precision Safe</span>
+                        <span className="text-amber-600 font-black text-[11px]">Precision Safe</span>
                       </div>
-                      <p className="text-slate-600 text-[11px] leading-relaxed">
+                      <p className="text-slate-600 text-[11.5px] leading-relaxed">
                         Burned heating elements, gas spark igniter failure, erratic bake temperatures, locked doors.
                       </p>
                     </div>
                   )}
 
+                  {/* Primary Diagnostic Booking Action Button */}
                   <Link
                     to={`/book?type=${selectedCategory}`}
-                    className="w-full h-12 mt-3 rounded-xl font-bold text-xs text-center text-white bg-slate-900 hover:bg-brand-600 flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                    className="w-full h-11 sm:h-12 mt-2 rounded-xl font-extrabold text-xs sm:text-sm text-center text-white bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 flex items-center justify-center gap-1.5 shadow-md shadow-brand-600/20 transition-all"
                   >
                     <span>Schedule Diagnostic For This Machine</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
 
-                  <div className="flex items-center justify-between pt-2 text-[11px] text-slate-500">
+                  <div className="flex items-center justify-between pt-1 text-[11px] text-slate-500">
                     <span className="flex items-center gap-1">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
                       90-Day Parts &amp; Labor Warranty
                     </span>
-                    <span className="font-semibold text-brand-700">Flat-Rate Diagnostic</span>
+                    <span className="font-bold text-brand-700">Flat-Rate Diagnostic</span>
                   </div>
                 </div>
 
@@ -245,12 +256,12 @@ export default function Home() {
 
 
       {/* 2. TRUST & TRANSPARENCY ROW (Consistent Card Heights) */}
-      <section className="bg-white py-14 border-b border-slate-200/80">
+      <section className="bg-white py-14 sm:py-16 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             
             {/* Trust Badge 1 */}
-            <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-gradient-to-br from-brand-50/50 to-white border border-brand-100 shadow-xs hover:shadow-md transition-shadow">
+            <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-gradient-to-br from-brand-50/50 to-white border border-brand-100 shadow-2xs hover:shadow-md transition-shadow">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center mb-4 shadow-md shadow-brand-500/20">
                   <ShieldCheck className="w-6 h-6" />
@@ -268,7 +279,7 @@ export default function Home() {
             </div>
 
             {/* Trust Badge 2 */}
-            <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-gradient-to-br from-red-50/50 to-white border border-red-100 shadow-xs hover:shadow-md transition-shadow">
+            <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-gradient-to-br from-red-50/50 to-white border border-red-100 shadow-2xs hover:shadow-md transition-shadow">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center mb-4 shadow-md shadow-red-500/20">
                   <Clock className="w-6 h-6" />
@@ -286,7 +297,7 @@ export default function Home() {
             </div>
 
             {/* Trust Badge 3: 100% Diagnostic Credit */}
-            <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-gradient-to-br from-emerald-50/50 to-white border border-emerald-100 shadow-xs hover:shadow-md transition-shadow">
+            <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-gradient-to-br from-emerald-50/50 to-white border border-emerald-100 shadow-2xs hover:shadow-md transition-shadow">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-4 shadow-md shadow-emerald-500/20">
                   <DollarSign className="w-6 h-6" />
@@ -304,7 +315,7 @@ export default function Home() {
             </div>
 
             {/* Trust Badge 4: Word-of-Mouth Reputation */}
-            <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-gradient-to-br from-amber-50/50 to-white border border-amber-100 shadow-xs hover:shadow-md transition-shadow">
+            <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-gradient-to-br from-amber-50/50 to-white border border-amber-100 shadow-2xs hover:shadow-md transition-shadow">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center mb-4 shadow-md shadow-amber-500/20">
                   <Award className="w-6 h-6" />
@@ -684,7 +695,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               to="/specialties"
-              className="h-12 inline-flex items-center justify-center gap-2 px-6 rounded-xl border border-slate-300 hover:border-brand-500 text-slate-800 font-bold text-sm bg-white hover:bg-slate-50 transition-all shadow-xs"
+              className="h-12 inline-flex items-center justify-center gap-2 px-6 rounded-xl border border-slate-300 hover:border-brand-500 text-slate-800 font-bold text-sm bg-white hover:bg-slate-50 transition-all shadow-2xs"
             >
               <span>Explore In-Depth Appliance Specialties Guide</span>
               <ArrowRight className="w-4 h-4 text-brand-600" />
@@ -725,7 +736,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
               
               {/* Sub-Zero */}
-              <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-white border-2 border-amber-200/80 shadow-xs hover:shadow-md hover:border-amber-400 transition-all">
+              <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-white border-2 border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <h4 className="text-2xl font-black text-slate-900">Sub-Zero</h4>
@@ -753,7 +764,7 @@ export default function Home() {
               </div>
 
               {/* Viking */}
-              <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-white border-2 border-amber-200/80 shadow-xs hover:shadow-md hover:border-amber-400 transition-all">
+              <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-white border-2 border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <h4 className="text-2xl font-black text-slate-900">Viking</h4>
@@ -797,7 +808,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
               
               {/* Whirlpool */}
-              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-all">
+              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:shadow-md transition-all">
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="text-xl font-bold text-slate-900">Whirlpool</h4>
@@ -814,7 +825,7 @@ export default function Home() {
               </div>
 
               {/* Samsung */}
-              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-all">
+              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:shadow-md transition-all">
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="text-xl font-bold text-slate-900">Samsung</h4>
@@ -831,7 +842,7 @@ export default function Home() {
               </div>
 
               {/* LG */}
-              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-all">
+              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:shadow-md transition-all">
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="text-xl font-bold text-slate-900">LG</h4>
@@ -848,7 +859,7 @@ export default function Home() {
               </div>
 
               {/* Bosch */}
-              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-all">
+              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:shadow-md transition-all">
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="text-xl font-bold text-slate-900">Bosch</h4>
@@ -865,7 +876,7 @@ export default function Home() {
               </div>
 
               {/* GE (General Electric) */}
-              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-all">
+              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:shadow-md transition-all">
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="text-xl font-bold text-slate-900">GE (General Electric)</h4>
@@ -882,7 +893,7 @@ export default function Home() {
               </div>
 
               {/* Extra Brand Card: KitchenAid / Maytag */}
-              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-dashed border-slate-300 shadow-xs">
+              <div className="h-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-dashed border-slate-300 shadow-2xs">
                 <div>
                   <h4 className="text-base font-bold text-slate-800">Have Another Brand?</h4>
                   <p className="text-xs text-slate-500 mt-1 leading-relaxed">
@@ -922,7 +933,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             {TESTIMONIALS.map((t, idx) => (
-              <div key={idx} className="h-full flex flex-col justify-between p-7 rounded-3xl bg-slate-50 border border-slate-200 shadow-xs">
+              <div key={idx} className="h-full flex flex-col justify-between p-7 rounded-3xl bg-slate-50 border border-slate-200 shadow-2xs">
                 <div>
                   <div className="flex items-center gap-1 text-amber-400 mb-4">
                     {[...Array(t.rating)].map((_, i) => (
@@ -980,7 +991,7 @@ export default function Home() {
             {FAQ_ITEMS.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs"
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs"
               >
                 <button
                   type="button"
